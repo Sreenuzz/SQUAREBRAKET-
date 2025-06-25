@@ -1,0 +1,275 @@
+:root {
+    --color-primary: #012e01;
+    --color-secondary: rgb(72, 213, 47);
+    --font-family: Arial, Helvetica, sans-serif;
+    --color-medium: #8f8f8f;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-family);
+    line-height: 1.5;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+section {
+    padding: 5em;
+    background-image: linear-gradient(to right, rgb(218, 252, 219) 50%, rgba(255, 255, 255, 0)), url(./bags.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.section-header {
+    margin-bottom: 3em;
+}
+
+.section-header h1,
+.section-header h6,
+.section-header button {
+    color: var(--color-primary);
+}
+
+/* Color for icon inside h6 */
+.section-header h6 i {
+    color: var(--color-secondary);
+}
+
+.section-header>h6 {
+    margin-bottom: 1em;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.section-title {
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;
+}
+
+.section-title>h1 {
+    font-size: 40px;
+}
+
+.controls {
+    display: flex;
+    gap: 20px;
+}
+
+.controls button {
+    width: 50px;
+    height: 50px;
+    border: 2px solid var(--color-primary);
+    border-radius: 50%;
+    background: transparent;
+    font-size: 18px;
+    transition: 0.3s all ease-in-out;
+}
+
+.controls button:hover {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.section-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Cards with fadeInUp and floating animation */
+.card {
+    flex: 1 1 300px;
+    padding: 2em;
+    background-color: rgb(251, 249, 249);
+    border-radius: 30px;
+    transition: 0.5s all ease-in-out;
+    box-shadow: 0 4px 10px rgba(216, 14, 14, 0.1);
+}
+
+.card:hover {
+    animation: cardBounce 0.6s;
+    transform: scale(1.05) translateY(-15px);
+    box-shadow: 0 8px 20px rgba(72, 213, 47, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-header {
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.card-header span {
+    display: inline-flex;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    font-size: 40px;
+    color: white;
+    background-color: var(--color-secondary);
+    align-items: center;
+    justify-content: center;
+    animation: pulse 2s infinite;
+}
+
+.card-header h2 {
+    margin-top: 1.5em;
+    font-size: 20px;
+}
+
+.card-content {
+    text-align: center;
+    color: var(--color-medium);
+    font-size: 16px;
+}
+
+/* Animation keyframes */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(60px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes floating {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(12px);
+    }
+}
+
+/* New pulse animation */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(72, 213, 47, 0.7);
+    }
+    50% {
+        transform: scale(1.08);
+        box-shadow: 0 0 16px 8px rgba(72, 213, 47, 0.15);
+    }
+}
+
+/* New bounce animation on hover */
+@keyframes cardBounce {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 4px 10px rgba(216, 14, 14, 0.1);
+    }
+    30% {
+        transform: scale(1.08) translateY(-10px);
+        box-shadow: 0 8px 24px rgba(72, 213, 47, 0.25);
+    }
+    60% {
+        transform: scale(0.98) translateY(2px);
+        box-shadow: 0 6px 16px rgba(72, 213, 47, 0.18);
+    }
+    100% {
+        transform: scale(1) translateY(0);
+        box-shadow: 0 4px 10px rgba(216, 14, 14, 0.1);
+    }
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+    .section-title>h1 {
+        font-size: 32px;
+    }
+
+    .card {
+        flex: 1 1 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    section {
+        padding: 3em 1.5em;
+    }
+
+    .section-title>h1 {
+        font-size: 28px;
+    }
+
+    .card {
+        flex: 1 1 100%;
+    }
+
+    .controls {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .section-header>h6 {
+        font-size: 14px;
+    }
+
+    .section-title>h1 {
+        font-size: 24px;
+    }
+
+    .controls button {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+
+    .card-header span {
+        width: 60px;
+        height: 60px;
+        font-size: 28px;
+    }
+
+    .card-header h2 {
+        font-size: 18px;
+    }
+
+    .card-content {
+        font-size: 14px;
+    }
+}
+@media (max-width: 360px) {
+    .section-header>h6 {
+        font-size: 12px;
+    }
+
+    .section-title>h1 {
+        font-size: 20px;
+    }
+
+    .controls button {
+        width: 35px;
+        height: 35px;
+        font-size: 14px;
+    }
+
+    .card-header span {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+
+    .card-header h2 {
+        font-size: 16px;
+    }
+
+    .card-content {
+        font-size: 12px;
+    }
+}
