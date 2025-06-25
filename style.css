@@ -34,12 +34,11 @@ section {
     color: var(--color-primary);
 }
 
-/* Color for icon inside h6 */
 .section-header h6 i {
     color: var(--color-secondary);
 }
 
-.section-header>h6 {
+.section-header > h6 {
     margin-bottom: 1em;
     font-size: 16px;
     font-weight: normal;
@@ -49,15 +48,19 @@ section {
     display: flex;
     justify-content: space-between;
     gap: 1em;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
-.section-title>h1 {
+.section-title > h1 {
     font-size: 40px;
+    flex: 1 1 auto;
 }
 
 .controls {
     display: flex;
     gap: 20px;
+    flex-shrink: 0;
 }
 
 .controls button {
@@ -92,15 +95,10 @@ section {
         transform 0.3s cubic-bezier(.25,.8,.25,1),
         box-shadow 0.3s cubic-bezier(.25,.8,.25,1);
     box-shadow: 0 4px 10px rgba(216, 14, 14, 0.1);
+    animation: fadeInUp 0.6s ease both;
 }
 
 .card:hover {
-    /* Remove animation property and previous transform/box-shadow */
-    /* animation: cardBounce 0.6s; */
-    /* transform: scale(1.05) translateY(-15px); */
-    /* box-shadow: 0 8px 20px rgba(72, 213, 47, 0.3); */
-
-    /* New smooth pop effect: */
     transform: scale(1.04) translateY(-6px) rotate(-1deg);
     box-shadow: 0 16px 32px rgba(72, 213, 47, 0.18);
 }
@@ -155,7 +153,6 @@ section {
     }
 }
 
-/* New pulse animation */
 @keyframes pulse {
     0%, 100% {
         transform: scale(1);
@@ -167,7 +164,6 @@ section {
     }
 }
 
-/* New bounce animation on hover */
 @keyframes cardBounce {
     0% {
         transform: scale(1);
@@ -189,7 +185,7 @@ section {
 
 /* Responsive styles */
 @media (max-width: 1024px) {
-    .section-title>h1 {
+    .section-title > h1 {
         font-size: 32px;
     }
 
@@ -203,7 +199,12 @@ section {
         padding: 3em 1.5em;
     }
 
-    .section-title>h1 {
+    .section-title {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .section-title > h1 {
         font-size: 28px;
     }
 
@@ -217,16 +218,11 @@ section {
 }
 
 @media (max-width: 480px) {
-    .section-title {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .section-header>h6 {
+    .section-header > h6 {
         font-size: 14px;
     }
 
-    .section-title>h1 {
+    .section-title > h1 {
         font-size: 24px;
     }
 
@@ -250,12 +246,13 @@ section {
         font-size: 14px;
     }
 }
+
 @media (max-width: 360px) {
-    .section-header>h6 {
+    .section-header > h6 {
         font-size: 12px;
     }
 
-    .section-title>h1 {
+    .section-title > h1 {
         font-size: 20px;
     }
 
